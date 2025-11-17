@@ -59,7 +59,7 @@ jobs:
 
     - name: Check formatting with black
       run: |
-        uvx ruff formt
+        uvx ruff format
 
     - name: Type check with mypy
       run: |
