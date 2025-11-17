@@ -64,4 +64,4 @@ jobs:
     - name: Type check with mypy
       run: |
         uvx ty check 
-      
+      # hahaha
