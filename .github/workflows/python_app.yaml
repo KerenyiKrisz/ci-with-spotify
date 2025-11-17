@@ -55,12 +55,13 @@ jobs:
     # This step runs the linter against the codebase
     - name: Lint with ruff
       run: |
-        uv run ruff check .
+        uvx ruff check .
 
     - name: Check formatting with black
       run: |
-        uv run black --check .
+        uvx ruff formt
 
     - name: Type check with mypy
       run: |
-        uv run mypy . --ignore-missing-imports     
+        uvx ty check 
+      
