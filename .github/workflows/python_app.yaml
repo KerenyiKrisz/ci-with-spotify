@@ -53,7 +53,7 @@ jobs:
         uv run -m pytest
 
     # This step runs the linter against the codebase
-    - name: Lint with rufff
+    - name: Lint with ruff
       run: |
         uv run ruff check .
 
