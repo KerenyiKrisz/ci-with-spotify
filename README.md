@@ -1,52 +1,214 @@
-# Spotify and CI
+# Spotify EDA with Modern CI/CD
 
-## Background
+> 📊 Exploratory Data Analysis on Spotify tracks using **Polars** + **Marimo**, with a complete **GitHub Actions CI/CD pipeline** demonstrating production-ready Python development practices.
 
-We started this session with a look at the
-[Prompting for Attorneys](https://huggingface.co/spaces/arthrod/prompting_for_attorneys)
-app on Hugging Face.
+---
 
-Behind every good app, there is a GitHub repository, and so we explored the
-[GitHub repo](https://github.com/arthrod/prompting/) behind this one. We noticed
-these directories:
+## 🎯 Overview
 
-* `.devcontainer`, which is a configuration space for preparing Codespaces
-* `.github/workflows`, which is a configuration space for *GitHub Actions*, a form of *Continuous Integration*
-* `docker`, which holds a *Dockerfile* - the configuration for *containerising* an application
+This project showcases:
+- **Interactive Data Analysis** – Marimo notebook for live Spotify data exploration
+- **Modern Python Stack** – Polars for efficient data processing, Plotly for visualization
+- **Production CI/CD** – Automated testing, linting, formatting, and type checking with GitHub Actions
+- **Dev Environment** – Dev Container + `uv` for reproducible, isolated development
+- **Best Practices** – Code quality tools (Ruff, Black, mypy) integrated into the workflow
 
-![CI and Virtualisation configs](assets/ci-virt-dirs.png)
+### Key Features
 
-## Spotify EDA
+✅ **Automated Testing** – pytest with CI integration  
+✅ **Linting & Formatting** – Ruff + Black for clean, consistent code  
+✅ **Type Safety** – mypy for static type checking  
+✅ **Reproducible Environment** – Dev Container + uv lock file  
+✅ **Easy to Run** – Single command to start the interactive notebook  
 
-This repository contains a Marimo notebook from a series on Polars, from
-[the Marimo team](https://github.com/marimo-team/learn/tree/main/polars). The notebook
-uses some Spotify tracks data to demonstrate Polars functionality and take the learner
-through some exploratory data analysis (EDA) techniques.
+---
 
-You can run this notebook like an app, like this:
+## 🚀 Quick Start
 
+### Prerequisites
+- Python 3.12+
+- `uv` package manager ([install](https://docs.astral.sh/uv/getting-started/installation/))
+
+### Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/KerenyiKrisz/ci-with-spotify.git
+cd ci-with-spotify
+
+# Install dependencies
+uv sync
+
+# Run the interactive notebook
+uv run marimo run notebooks/spotify_eda.py
+```
+
+### Run Tests & Code Quality Checks
+
+```bash
+# Run all tests
+uv run pytest
+
+# Lint with Ruff
+uv run ruff check .
+
+# Check formatting with Black
+uv run black --check .
+
+# Type check with mypy
+uv run mypy . --ignore-missing-imports
+```
+
+---
+
+## 📁 Project Structure
+
+```
+ci-with-spotify/
+├── .github/workflows/        # GitHub Actions CI/CD pipeline
+│   └── python_app.yaml       # Automated testing, linting, type checking
+├── .devcontainer/            # Dev Container configuration
+├── notebooks/
+│   └── spotify_eda.py        # Marimo notebook for interactive EDA
+├── tests/
+│   └── test_utility.py       # Unit tests
+├── main.py                   # Entry point
+├── pyproject.toml            # Project metadata & dependencies
+└── README.md                 # This file
+```
+
+---
+
+## 🔄 GitHub Actions Workflow
+
+The CI pipeline automatically runs on every push and pull request to `main`:
+
+| Step | Tool | Purpose |
+|------|------|---------|
+| **Install Dependencies** | uv | Sync Python environment |
+| **Run Tests** | pytest | Execute unit tests |
+| **Lint Code** | Ruff | Check for code issues |
+| **Format Check** | Black | Verify code formatting |
+| **Type Check** | mypy | Static type validation |
+
+All checks must pass before merging to `main`. This ensures code quality and consistency.
+
+---
+
+## 🛠️ Technologies
+
+| Category | Tools |
+|----------|-------|
+| **Data Processing** | Polars, NumPy, Pandas |
+| **Visualization** | Plotly Express |
+| **Interactive Notebook** | Marimo |
+| **Package Management** | uv, pip |
+| **Testing** | pytest |
+| **Code Quality** | Ruff, Black, mypy |
+| **CI/CD** | GitHub Actions |
+| **Dev Environment** | Dev Container, Docker |
+
+---
+
+## 📊 Spotify EDA Notebook
+
+The main interactive analysis is in `notebooks/spotify_eda.py`, a Marimo notebook that:
+- Loads Spotify tracks dataset
+- Performs exploratory data analysis
+- Creates interactive visualizations
+- Demonstrates Polars best practices
+
+**Run the notebook:**
 ```bash
 uv run marimo run notebooks/spotify_eda.py
 ```
 
-## Dev Container Configuration
+---
 
-Devcontainers allow you to define a consistent development environment.
-Codespaces will always look for and use a devcontainer config, but you
-can also use devcontainers in your local VS Code.
+## 🧪 Testing
 
-This repo contains a `devcontainer.json` that installs `uv` with a *feature*,
-installs the VS Code `Python` extension with *customizations* and calls the
-*postCreateCommand* to `sync` the environment, so you don't have to.
+Unit tests are located in `tests/test_utility.py`. Run with:
 
-## GitHub Action Configuration
+```bash
+uv run pytest
+```
 
-GitHub Actions are a way to run continuous integration (CI) workflows,
-or automated processes triggered by updates to your repository code.
-These processes run on virtual GitHub servers called runners.
+Or with coverage:
+```bash
+uv run pytest --cov
+```
 
-This repo contains a workflow configuration in
-`.github/workflows/python_app.yaml` that runs on pushes to the `main` branch.
+---
+
+## 📋 Development Practices
+
+### Code Quality Standards
+- **Linting:** Ruff checks for errors, complexity, and style violations
+- **Formatting:** Black enforces consistent code style (127-char line length)
+- **Type Safety:** mypy ensures type correctness
+- **Testing:** All changes must pass pytest
+
+### Contributing
+
+To contribute:
+1. Create a feature branch
+2. Make changes and run local checks:
+   ```bash
+   uv run ruff check .
+   uv run black .
+   uv run mypy . --ignore-missing-imports
+   uv run pytest
+   ```
+3. Push and create a pull request – CI will validate automatically
+
+---
+
+## 🐳 Dev Container
+
+This repo includes `.devcontainer/devcontainer.json` for a reproducible development environment using Docker:
+
+- **Includes:** Python 3.12, uv, VS Code extensions
+- **Pre-configured:** Environment synced automatically on startup
+- **VS Code Integration:** Works with local or GitHub Codespaces
+
+Use with:
+```bash
+# GitHub Codespaces (web-based)
+# Create from "Code" → "Codespaces" button
+
+# Local VS Code with Docker
+# Install Dev Containers extension, then reopen folder in container
+```
+
+---
+
+## 📈 Why This Project?
+
+This repository demonstrates **production-ready Python development** by combining:
+
+1. **Practical Data Analysis** – Real Spotify data with Polars/Marimo
+2. **Best Practices** – Type hints, testing, linting, formatting
+3. **DevOps Fundamentals** – CI/CD pipelines, containerization, automation
+4. **Team Collaboration** – Code quality gates ensure consistency
+
+It's a portfolio piece showing I understand the full software development lifecycle—from writing clean code to automating quality checks.
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+---
+
+## 🤝 Contact
+
+- **GitHub:** [KerenyiKrisz](https://github.com/KerenyiKrisz)
+- **Project:** [ci-with-spotify](https://github.com/KerenyiKrisz/ci-with-spotify)
+
+---
+
+*Built with ❤️ using Python, Polars, and GitHub Actions.*
 
 On a repository without any GitHub Actions configured, some templates are
 provided to help you get started. We've used the `Python application` template,
