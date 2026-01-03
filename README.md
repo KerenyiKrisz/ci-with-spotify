@@ -1,10 +1,10 @@
 # Spotify EDA with Modern CI/CD
 
-> 📊 Exploratory Data Analysis on Spotify tracks using **Polars** + **Marimo**, with a complete **GitHub Actions CI/CD pipeline** demonstrating production-ready Python development practices.
+> Exploratory Data Analysis on Spotify tracks using **Polars** + **Marimo**, with a complete **GitHub Actions CI/CD pipeline** demonstrating production-ready Python development practices.
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 This project showcases:
 - **Interactive Data Analysis** – Marimo notebook for live Spotify data exploration
@@ -15,15 +15,15 @@ This project showcases:
 
 ### Key Features
 
-✅ **Automated Testing** – pytest with CI integration  
-✅ **Linting & Formatting** – Ruff + Black for clean, consistent code  
-✅ **Type Safety** – mypy for static type checking  
-✅ **Reproducible Environment** – Dev Container + uv lock file  
-✅ **Easy to Run** – Single command to start the interactive notebook  
+**Automated Testing** – pytest with CI integration  
+**Linting & Formatting** – Ruff + Black for clean, consistent code  
+**Type Safety** – mypy for static type checking  
+**Reproducible Environment** – Dev Container + uv lock file  
+**Easy to Run** – Single command to start the interactive notebook  
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.12+
@@ -61,7 +61,7 @@ uv run mypy . --ignore-missing-imports
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ci-with-spotify/
@@ -79,7 +79,7 @@ ci-with-spotify/
 
 ---
 
-## 🔄 GitHub Actions Workflow
+##  GitHub Actions Workflow
 
 The CI pipeline automatically runs on every push and pull request to `main`:
 
@@ -110,7 +110,7 @@ All checks must pass before merging to `main`. This ensures code quality and con
 
 ---
 
-## 📊 Spotify EDA Notebook
+## Spotify EDA Notebook
 
 The main interactive analysis is in `notebooks/spotify_eda.py`, a Marimo notebook that:
 - Loads Spotify tracks dataset
@@ -125,7 +125,7 @@ uv run marimo run notebooks/spotify_eda.py
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 Unit tests are located in `tests/test_utility.py`. Run with:
 
@@ -140,7 +140,7 @@ uv run pytest --cov
 
 ---
 
-## 📋 Development Practices
+## Development Practices
 
 ### Code Quality Standards
 - **Linting:** Ruff checks for errors, complexity, and style violations
@@ -163,7 +163,7 @@ To contribute:
 
 ---
 
-## 🐳 Dev Container
+##  Dev Container
 
 This repo includes `.devcontainer/devcontainer.json` for a reproducible development environment using Docker:
 
@@ -182,7 +182,7 @@ Use with:
 
 ---
 
-## 📈 Why This Project?
+##  Why This Project?
 
 This repository demonstrates **production-ready Python development** by combining:
 
@@ -195,20 +195,20 @@ It's a portfolio piece showing I understand the full software development lifecy
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License – see the LICENSE file for details.
 
 ---
 
-## 🤝 Contact
+##  Contact
 
 - **GitHub:** [KerenyiKrisz](https://github.com/KerenyiKrisz)
 - **Project:** [ci-with-spotify](https://github.com/KerenyiKrisz/ci-with-spotify)
 
 ---
 
-*Built with ❤️ using Python, Polars, and GitHub Actions.*
+*Built with  using Python, Polars, and GitHub Actions.*
 
 On a repository without any GitHub Actions configured, some templates are
 provided to help you get started. We've used the `Python application` template,
